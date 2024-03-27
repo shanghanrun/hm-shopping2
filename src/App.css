@@ -86,6 +86,10 @@
 	color: red;
 	cursor:pointer;
 }
+.favorite2.clicked {
+	transform: scale(1.2) rotate(360deg);
+	/* 클릭한 경우의 애니메이션 */
+}
 
 /* .card-text{
 	position: absolute;
