@@ -1,53 +1,25 @@
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useFavorite } from '../store/useFavorite'
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({item}) => {
 	const {addItem, removeItem} = useFavorite()
-	const [active, setActive] = useState('')
-	function handleFavorite(item, id){
-		const favorite2 = document.querySelector('#favorite2')
-		if(favorite2.classList.contains('active')){
-			favorite2.classList.remove('active')
-			removeItem(id)
-		} else{
-			favorite2.classList.add('active')
-			addItem(item)
-		}
+	const navigate = useNavigate()
+	const showDetail=()=>{
+		navigate(`product/${item.id}`)
 	}
 
-	useEffect(() => {
-    const favorite2 = document.querySelector('#favorite2');
-
-    function handleMouseOver() {
-      if (!active) {
-        favorite2.style.color = 'red';
-      }
-    }
-
-    function handleMouseOut() {
-      if (!active) {
-        favorite2.style.color = 'black';
-      }
-    }
-
-    favorite2.addEventListener('mouseover', handleMouseOver);
-    favorite2.addEventListener('mouseout', handleMouseOut);
-
-    return () => {
-      favorite2.removeEventListener('mouseover', handleMouseOver);
-      favorite2.removeEventListener('mouseout', handleMouseOut);
-    };
-  }, [active]); // active가 변경될 때마다 useEffect가 재실행되도록 설정
-
   return (
-	<div className='card'>
-		<div className='card-img'>
+	<div className='card' >
+		<div className='card-img' onClick={showDetail}>
 			<img width="100%"
 				src={item.img} alt=""/>
-			<FontAwesomeIcon id='favorite2' icon={faHeart} 
-				onClick={()=>handleFavorite(item, item.id)}
+			<FontAwesomeIcon className="favorite2" icon={faHeart} 
+				onClick={(e)=>{
+					e.stopPropagation();//이벤트 버블링 차단
+					addItem(item)}}
 			/>
 		</div>
 		<div className='card-text'>

@@ -6,7 +6,21 @@
 	margin-top: 30px;
 	font-size: 25px;
 }
-
+.user:hover{
+	color: red;
+		cursor: pointer;
+}
+#favorite:hover {
+	color: red;
+	cursor: pointer;
+}
+.shopping-bag:hover{
+	color: red;
+		cursor: pointer;
+}
+.login-btn:hover{
+	background: pink;
+}
 
 .logo{
 	text-align: center;
@@ -55,15 +69,23 @@
 	transform: scale(1.05);
 	z-index: 2;
 }
+.card-img{
+	z-index: 1;
+}
 
-#favorite2 {
+.favorite2 {
 	position: absolute;
 	right: 15px;
 	bottom: 150px;
 	font-size: 25px;
 	z-index:3;
+	transition: all 0.6s;
 }
-
+.favorite2:hover{
+	font-size: 30px;
+	color: red;
+	cursor:pointer;
+}
 
 /* .card-text{
 	position: absolute;
@@ -74,11 +96,25 @@
 	padding: 10px 0;
 	background: white;
 } */
-#favorite{
 
+
+.top{
+	display:flex;
+	justify-content:center;
+}
+.login-container{
+	margin-top: 20px;
+	width: 500px;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px;
 }
 
 
-.active{
-	color: red;
+
+.space{
+	height: 100px;
+}
+.add:hover{
+	font-weight:bold;
 }

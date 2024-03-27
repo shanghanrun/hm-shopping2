@@ -5,7 +5,12 @@ const Favorite = () => {
 	const {favoriteList} = useFavorite()
 	console.log('favoriteList : ', favoriteList)
   return (
-	<div>Favorite</div>
+	<div>
+		<div>Fovorite : {favoriteList.length}</div>
+		<ul>
+			{favoriteList.map((item,i)=><li key={i}>{item.title}</li>)}
+		</ul>
+	</div>
   )
 }
 

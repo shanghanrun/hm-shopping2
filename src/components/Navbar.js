@@ -50,7 +50,7 @@ const Navbar = () => {
 			<div className="" onClick={()=>navigate('/favorite')}>
 				<FontAwesomeIcon id='favorite' icon={faHeart} />
 			</div>
-			<div className='hidden'>
+			<div className='hidden shopping-bag' onClick={()=>navigate('/cart')}>
 				<FontAwesomeIcon icon={faShoppingBag} />
 			</div>
 			<div className="login-btn" onClick={handleLoginClick} >
