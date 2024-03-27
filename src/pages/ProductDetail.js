@@ -66,7 +66,10 @@ const ProductDetail = () => {
         <div id="detail-item-selectedCount">선택한 수량 : {selectedCount}</div>
         <div className="space"></div>
         <Button variant="warning" 
-          onClick={()=>addItem({...item, "count":count})}
+          onClick={()=>{  
+            addItem({...item, "count":count})
+            navigate('/')
+          }}
           className="add">장바구니에 추가</Button>
       </Col>
       </Row>
