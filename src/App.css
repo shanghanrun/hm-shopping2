@@ -122,3 +122,15 @@
 .add:hover{
 	font-weight:bold;
 }
+
+
+.detail-item{
+	margin-top: 20px;
+	display:flex;
+	justify-content:center;
+}
+.detail-info {
+	border: 2px solid rgb(173, 172, 172);
+	border-radius: 3px;
+	padding: 20px;
+}

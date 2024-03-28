@@ -28,6 +28,7 @@ const Navbar = () => {
 			event.target.value ="";//input 비운다.
 			//브라우저 url을 바꿔준다.
 			navigate(`/?q=${keyword}`) //db.json구조에 따라서
+			// '/'로 라우팅한 이유는 여러건이 나올 수 있으므로 ProductAll로 라우팅함
 		} else{
 			return;
 		}

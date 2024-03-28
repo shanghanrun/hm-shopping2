@@ -2,11 +2,9 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 import { Container,Row, Col, Dropdown, DropdownButton, Button } from 'react-bootstrap';
-import { useAuth } from '../store/useAuth';
 import { useCart } from './../store/useCart';
 
 const ProductDetail = () => {
-  const {auth} = useAuth()
   const navigate = useNavigate()
   const {id} = useParams()
   const [item, setItem] = useState(null)
@@ -15,7 +13,7 @@ const ProductDetail = () => {
   const [count, setCount] = useState(0)
   const [selectedCount, setSelectedCount]=useState(0)
   const {addItem} = useCart()
-  let list;
+
   const getItem =async()=>{
     // let url =`http://localhost:5000/products/${id}`
     let url = `https://my-json-server.typicode.com/shanghanrun/hm-shopping2/products/${id}`
@@ -37,20 +35,16 @@ const ProductDetail = () => {
     setCount(count); //이것 반영해야 된다.
     setSelectedCount(count)
   }
-
-  if(auth === false){
-    navigate('/login')
-  } else{
-    
-    return (
-    <Container>
-      <Row className="detail-item">
+  
+  return (
+  <Container >
+    <Row className="detail-item">
       <Col lg={4}>
         <img src={item?.img} width="100%" alt="상품"/>
       </Col>
       <Col className="detail-info" lg={4}>
         <div id="detail-item-title">{item?.title}</div>
-        <div id="detail-item-price">W {item?.price}</div>
+        <div id="detail-item-price">₩ {item?.price}</div>
         <div id="detail-item-choice">{item?.choice ==true? "Conscious choice": ""}</div>
         <DropdownButton id="size-dropdown" title="사이즈 선택">
           {sizes.map(size =>
@@ -72,10 +66,10 @@ const ProductDetail = () => {
           }}
           className="add">장바구니에 추가</Button>
       </Col>
-      </Row>
-    </Container>
-    )
-  }
+    </Row>
+  </Container>
+  )
+  
 }
 
 export default ProductDetail
